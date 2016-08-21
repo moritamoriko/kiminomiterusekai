@@ -1,3 +1,12 @@
-h1 Home#index
-p
-	| aaaaaaaaaaaaaaa
+.main-column
+	= image_tag('home_main.png', alt: "キミの見てる世界。", class: " ")
+	.home__container
+		p.home__container-copy
+			| 誰の世界を見るの？
+
+    input.form-control.form-control-lg(type="text" placeholder="＠")
+		p.home__button-peep
+			| Peep!
+	footer.home__footer
+		copyright
+			| © 2016 moriko.

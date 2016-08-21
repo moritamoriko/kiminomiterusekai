@@ -6,7 +6,8 @@
 
     input.form-control.form-control-lg(type="text" placeholder="＠")
 		p.home__button-peep
-			| Peep!
+			= link_to '/timeline/', class: 'home__button-peep-link' do
+				| Peep!
 	footer.home__footer
 		copyright
 			| © 2016 moriko.

@@ -66,6 +66,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
     flutie (2.0.0)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -231,6 +233,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   flutie
+  font-awesome-rails
   haml-rails
   high_voltage
   jbuilder (~> 2.0)

@@ -1,14 +1,10 @@
-.main-column
-	.home__header
-		.home__header-container
-			
-			i.fa.fa-bars.home__header-container-icon
-	= image_tag('home_main.png', alt: "キミの見てる世界。", class: " ")
+.main-column.is-home
+	= image_tag('home_main.png', alt: "キミの見てる世界。", class: "home__main-picture")
 	.home__container
 		p.home__container-copy
 			| 誰の世界を見るの？
 
-    input.form-control.form-control-lg(type="text" placeholder="＠")
+    input.form-control.form-control-lg.is-home-input(type="text" placeholder="＠")
 		p.home__button-peep
 			= link_to '/timeline/', class: 'home__button-peep-link' do
 				| Peep!

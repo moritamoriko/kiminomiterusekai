@@ -11,7 +11,7 @@
 
 .header__container.is-timeline
 
-.header__container-menu-icon
+.header__container-icon
 	position: absolute
 	top: 0
 	right: 0
@@ -20,6 +20,16 @@
 	height: 40px
 	text-align: center
 	vertical-align: middle
+	&.is-refresh
+		top: 0
+		right: 50px
+	&.is-menu
+		top: 0
+		right: 0
+
+.is-refresh-icon
+	color: $white
+	font-size: 30px
 
 .is-menu-icon
 	color: $white

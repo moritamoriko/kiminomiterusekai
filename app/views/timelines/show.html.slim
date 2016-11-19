@@ -1,66 +1,24 @@
 - content_for(:extra_body_classes, 'has_no_side_column')
 
 .main-column.is-timeline
-  //tweet
-  .tweet__content.clearfix
-    .tweet__icon
-      = image_tag('timeline_icon_dammy.png', alt: "@moriko_o", class: "tweet__icon-picture")
-    .tweet__items-right
-      .tweet__items-header
-        .tweet__item-name
-          | もりこ@今年中にあと5キロもりこ@今年中にあと5キロ
-        .tweet__item-id
-          | @moriko_o
-        small.tweet__item-time
-          | 5分前
-      .tweet__tweet-container
-        | おにぎりクソうま。おにぎりこそ正義
-      .tweet__footer-items
-        small.tweet__footer-item.is-retweet
-          i.fa.fa-retweet.is-retweet-icon.tweet__footer-item-icon
-          span 666
-        small.tweet__footer-item
-          i.fa.fa-heart.is-icon.tweet__footer-item-icon
-          span 666
-  //tweet
-  .tweet__content.clearfix
-    .tweet__icon
-      = image_tag('timeline_icon_dammy.png', alt: "@moriko_o", class: "tweet__icon-picture")
-    .tweet__items-right
-      .tweet__items-header
-        .tweet__item-name
-          | もりこ@今年中にあと5キロ
-        .tweet__item-id
-          | @moriko_o
-        small.tweet__item-time
-          | 2時間前
-      .tweet__tweet-container
-        | 絶食5日目…。もうベットから起き上がる事すらままなりません。買い置きしていた水も底をつきました。
-      .tweet__footer-items
-        small.tweet__footer-item.is-retweet
-          i.fa.fa-retweet.is-retweet-icon.tweet__footer-item-icon
-          span 666
-        small.tweet__footer-item
-          i.fa.fa-heart.is-icon.tweet__footer-item-icon
-          span 666
-  //tweet
-  .tweet__content.clearfix
-    .tweet__icon
-      = image_tag('timeline_icon_dammy.png', alt: "@moriko_o", class: "tweet__icon-picture")
-    .tweet__items-right
-      .tweet__items-header
-        .tweet__item-name
-          | もりこ@今年中にあと5キロ
-        .tweet__item-id
-          | @moriko_o
-        small.tweet__item-time
-          | 5日前
-      .tweet__tweet-container
-        | 今日から断食がんばるぞい！絶対痩せてスリムになって、渋谷のスクランブル交差点をパンイチで横断してやるっ☆今日から断食がんばるぞい！絶対痩せてスリムになって、渋谷のスクランブル交差点をパンイチで横断してやるっ☆今日から断食がんばるぞい！絶対痩せてスリムになって、渋谷のスクランブル交差点をパンイチで横断してやるっ☆今日から断食がんばるぞい！絶対痩せてスリムになって、渋谷のスクランブル交差点をパンイチで横断してやるっ☆ 今日から断食がんばるぞい！絶対痩せてスリムになって、渋谷のスクランブル交差点をパンイチで横断してやるっ☆今日から断食がんばるぞい！絶対痩せてスリムになって、渋谷のスクランブル交差点をパンイチで横断してやるっ☆今日から断食がんばるぞい！絶対痩せてスリムになって、渋谷のスクランブル交差点をパンイチで横断してやるっ☆今日から断食がんばるぞい！絶対痩せてスリムになって、渋谷のスクランブル交差点をパンイチで横断してやるっ☆
-      .tweet__footer-items
-        small.tweet__footer-item.is-retweet
-          i.fa.fa-retweet.is-retweet-icon.tweet__footer-item-icon
-          span 666
-        small.tweet__footer-item
-          i.fa.fa-heart.is-icon.tweet__footer-item-icon
-          span 666
+  - @timeline.each do |tweet|
+    .tweet__content.clearfix
+      .tweet__icon
+        = image_tag(tweet.user.profile_image_url, alt: "@#{tweet.user.screen_name}", class: "tweet__icon-picture")
+      .tweet__items-right
+        .tweet__items-header
+          .tweet__item-name
+            = tweet.user.name
+          .tweet__item-id
+            = "@#{tweet.user.screen_name}"
+          small.tweet__item-time
+            = tweet.created_at.strftime('%m月%d日 %H:%M')
+        .tweet__tweet-container
+          = tweet.text
+        .tweet__footer-items
+          small.tweet__footer-item.is-retweet
+            i.fa.fa-retweet.is-retweet-icon.tweet__footer-item-icon
+            span = tweet.retweet_count
+          small.tweet__footer-item
+            i.fa.fa-heart.is-icon.tweet__footer-item-icon
+            span = tweet.favorite_count

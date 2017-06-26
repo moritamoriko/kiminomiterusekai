@@ -14,7 +14,7 @@
           small.tweet__item-time
             = tweet.created_at.strftime('%m月%d日 %H:%M')
         .tweet__tweet-container
-          = tweet.text
+          = auto_link(tweet.text, html: { target: '_blank' }, link: :urls)
         .tweet__footer-items
           small.tweet__footer-item.is-retweet
             i.fa.fa-retweet.is-retweet-icon.tweet__footer-item-icon

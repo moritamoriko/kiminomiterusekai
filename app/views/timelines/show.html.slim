@@ -23,6 +23,9 @@
               = link_to image_tag(page.meta['og:image']), t_url
               = link_to page.meta['og:title'], t_url
               = link_to page.meta['description'], t_url
+            - if t_url.start_with?("http://instagr.am/p/")
+              - t_url = t_url + "/media/?size=t"
+              = t_url
         .tweet__footer-items
           small.tweet__footer-item.is-retweet
             i.fa.fa-retweet.is-retweet-icon.tweet__footer-item-icon

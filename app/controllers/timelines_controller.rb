@@ -1,6 +1,6 @@
 class TimelinesController < ApplicationController
   def show
-    friends = TwitterClient.new.all_friends("moriko_o")
+    friends = TwitterClient.new.all_friends("morinca_a")
     @timeline = friends.find_all{|user| user.status.created_at.present? }.map(&:status).sort_by(&:created_at).reverse
 
     tweets = @timeline.map do |tweet|

@@ -15,14 +15,17 @@
             = tweet.created_at.strftime('%m月%d日 %H:%M')
         .tweet__tweet-container
           = auto_link(tweet.text, html: { target: '_blank' }, link: :urls)
-        .tweet__item-image
+        .tweet__img-items-block
           - t_url = URI::Parser.new.extract(tweet.full_text, ["https" , "http"]).first
           - if t_url.present?
             - page = MetaInspector.new(t_url)
             - if page.images.present?
               = link_to image_tag(page.meta['og:image']), t_url
-              = link_to page.meta['og:title'], t_url
-              = link_to page.meta['description'], t_url
+              .tweet__img-items-innner
+                .tweet__img-item-title
+                  = link_to page.meta['og:title'], t_url
+                .tweet__img-item-description
+                  = link_to page.meta['description'], t_url
             - if t_url.start_with?("http://instagr.am/p/")
               - t_url = t_url + "/media/?size=t"
               = t_url
